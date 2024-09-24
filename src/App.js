@@ -1,32 +1,48 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/navbar/navbar'
+import Footer from './components/footer';
+import AnimalParaNavbar from './components/navbar/navbar-bt';
+// import AnimalParaNavbar from './components/animalpara/navbar';
+import "./App.css";
+import routes from './routes';
+import routesBt from './routes-bt';
+import LoginModal from './components/animalpara/LoginModal';
 
 function App() {
-  return (
-      <div>
-        <nav>
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/about">About</Link>
-            </li>
-            <li>
-              <Link to="/contact">Contact</Link>
-            </li>
-          </ul>
-        </nav>
+  const location = useLocation();
 
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
+  const allRoutes = [...routes, ...routesBt];
+
+  const currentRoute = allRoutes.find(route => route.path === location.pathname);
+  const isAniPara = currentRoute && currentRoute.proj === 'AnimalPara';
+
+  useEffect(() => {
+    
+    if (currentRoute && currentRoute.title) {
+      document.title = currentRoute.title;
+    } else {
+      document.title = "My Portfolio"; // 預設標題
+    }
+  }, [location]);  // 從 routes1 中找到與當前路徑匹配的路由
+
+
+
+  return (
+    <>
+      <div className='maincontainer'>
+        {isAniPara ? <AnimalParaNavbar /> : <Navbar />}
+        <main>
+          <Routes>
+            {allRoutes.map(({ path, element: Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+          </Routes>
+        </main>
+        <Footer />
       </div>
+      {isAniPara && <LoginModal />}
+    </>
   );
 }
 

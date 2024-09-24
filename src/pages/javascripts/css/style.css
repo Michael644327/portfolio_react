@@ -1,0 +1,30 @@
+html{
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+    overflow: hidden;
+}
+
+.container{
+    padding-top: 55px;
+    flex-grow:1;
+}
+
+.sidebar{
+    height: 100vh;
+    border-right:1px solid #000;
+}
+
+.sidelist, .main-container{
+    padding-top: 40px;
+}
+
+.main-container{
+    padding-left:40px;
+    overflow:auto;
+}
+

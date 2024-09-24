@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>toDoList 練習</title>
+    <link rel="stylesheet" href="../css/Bootstrap_style.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+
+        .todoItem{
+            display: inline-block;
+            width:250px;
+            padding-left:5px;
+        }
+
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column h-100">
+
+
+    <!--top nav menu-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">首頁</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/Portfolio/">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Portfolio/javascripts/index.html">javascript練習</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/Portfolio/bootstrap/index.html">BootStrap練習</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-2 sidebar">
+                <ul class="sidelist">
+                    <li><a href="./calacular.html">計算機</a></li>
+                    <li><a href="./toDoList.html">待辦清單</a></li>
+                </ul>
+            </div>
+            <div class="col-10 main-container">
+                <div class="row">
+                    <div class="col-3">
+                        <div>篩選</div>
+                        <div>
+                            <button id="allFilter">全部</button>
+                            <button id="activeFilter">未完成</button>
+                            <button id="completedFilter">完成</button>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>剩餘任務: <span id="tasksLeftCounter">1</span></div>
+                        <button id="clearAllBtn">清除全部</button>
+                    </div>
+                </div>
+
+                <div class="my-3">
+                    <input type="text" id="newTaskInput" placeholder="請輸入新的待辦事項" />
+                    <button id="addTaskBtn">Add</button>
+                </div>
+                <ul id="taskList">
+                    <li class="todo">
+                        <input type="checkbox">
+                        <span class="todoItem">範例事項 1</span>
+                        <button>編輯</button>
+                        <button>刪除</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+</body>
+<footer class="footer mt-auto py-3 bg-dark text-white text-center fixed-bottom">本網頁為練習使用
+</footer>
+
+<script>
+    // al
+    let StopAdded = false;
+    function itemOver() {
+        if (document.querySelectorAll('.todo').length >= 5) {
+            addTaskBtn.innerText = '超過上限';
+            StopAdded = true;
+        } else {
+            addTaskBtn.innerText = 'Add';
+            StopAdded = false;
+        }
+    }
+    function countItem() {
+        tasksLeftCounter.innerText = document.querySelectorAll('li input:not(:checked)').length;
+    }
+    function addListitem() {
+        if (StopAdded) {
+            return;
+        }
+        const li = document.createElement('li');
+        // newElement = document.createElement('li');
+        taskList.insertAdjacentElement("beforeend", li);
+        li.className = 'todo';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.addEventListener('change', () => countItem());
+        // input.setAttribute('type', 'checkbox');
+        const Text = document.createElement('span');
+        Text.innerText = newTaskInput.value.trim();
+        Text.className = 'todoItem'
+        const editBtn = document.createElement('button');
+        editBtn.innerText = '編輯';
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.innerText = '刪除';
+        deleteBtn.addEventListener('click', function () {
+            this.parentNode.remove();
+            itemOver();
+            countItem();
+        });
+
+        editBtn.addEventListener('click', function () {
+            const newText = prompt('將項目修改為？');
+            this.previousSibling.innerText = newText;
+            // this.previousSibling.innerText = newTaskInput.value;
+        });
+
+        li.append(checkbox);
+        li.append(Text);
+        li.append(editBtn);
+        li.append(deleteBtn);
+
+        newTaskInput.value = "";
+        itemOver();
+        countItem();
+
+    }
+    addTaskBtn.addEventListener('click', () => addListitem());
+
+    function applyFilter(filter) {
+        const checkboxs = document.querySelectorAll('li input');
+        for (let checkbox of checkboxs) {
+            const isCheck = checkbox.checked;
+
+            if (filter === 'All') {
+                checkbox.parentNode.style.display = 'list-item';
+            }
+            else if (filter === 'Active') {
+                checkbox.parentNode.style.display = isCheck ? 'none' : 'list-item';
+            }
+            else if (filter === 'Completed') {
+                checkbox.parentNode.style.display = isCheck ? 'list-item' : 'none';
+            }
+        }
+    };
+    allFilter.addEventListener('click', () => applyFilter('All'));
+    activeFilter.addEventListener('click', () => applyFilter('Active'));
+    completedFilter.addEventListener('click', () => applyFilter('Completed'));
+
+    clearAllBtn.addEventListener('click', function () {
+        const lists = document.querySelectorAll('.todo');
+        for (let list of lists) {
+            list.remove();
+        }
+    });
+
+    newTaskInput.addEventListener('keydown', function (keyevent) {
+        console.log(keyevent.key);
+        if (keyevent.key === 'Enter') {
+            addListitem();
+        } else if (keyevent.key === 'Escape') {
+            newTaskInput.value = "";
+        }
+    })
+
+    //試做刪除紐
+    const buttons = document.querySelectorAll('button');
+    for (const button of buttons) {
+        button.addEventListener('click', function () {
+            if (button.className === "ddd") {
+                // this.parentNode.remove();
+                alert('按了刪除紐');
+            }
+        })
+    }
+
+
+</script>
+
+</html>

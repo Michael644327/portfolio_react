@@ -1,0 +1,18 @@
+
+.logo {
+    /* padding: 1.5em; */
+    will-change: filter;
+    transition: filter 300ms;
+    border-radius: 50%;
+    width:120px;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 1em #fbff00);
+}
+
+.navbar-bt .nav-Link{
+    color:#FFF;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}

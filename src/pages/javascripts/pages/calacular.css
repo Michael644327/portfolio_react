@@ -1,0 +1,28 @@
+
+.calculator {
+    border: 1px solid #000;
+    width: 300px;
+    padding: 24px;
+    background-color: #ccc;
+}
+
+.calculator-display {
+    width: 100%;
+}
+
+.calculator-buttons {
+    padding-top: 12px;
+
+    text-align: center;
+}
+
+.calculator-button {
+    width: 80px;
+    height: 32px;
+    border-radius: 5px;
+    margin: 2px auto;
+}
+
+.calculator-equals {
+    background-color: aqua;
+}
