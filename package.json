@@ -2,6 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://michael644327.github.io/portfolio/",
   "dependencies": {
     "@mui/material": "^6.1.1",
     "@popperjs/core": "^2.11.8",
