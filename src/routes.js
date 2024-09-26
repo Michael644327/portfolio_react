@@ -8,14 +8,14 @@ const routes = [
   {
     name: "功能練習",
     children: [
-      { path: "/portfolio/classwork/calacular", element: Calacular, name: "計算機" },
-      { path: "/portfolio/classwork/booklist", element: BookList, name: "書本清單篩選" },
+      { path: "/classwork/calacular", element: Calacular, name: "計算機" },
+      { path: "/classwork/booklist", element: BookList, name: "書本清單篩選" },
     ]
   },
   {
     name: "作品集",
     children: [
-      { path: "/portfolio/animalpara", element: AnimalPara, name: "動物樂園" },
+      { path: "/animalpara", element: AnimalPara, name: "動物樂園" },
       { path: "https://github.com/Michael644327/knock2-project", name:"密室逃脫-悄瞧 (github)" , ltype:"outside"}
     ]
   },

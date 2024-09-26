@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Routes, Route, useLocation } from 'react-router-dom';
-import Navbar from './components/navbar/navbar';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Navbar from './components/navbar/navbar'
 import AnimalParaNavbar from './components/navbar/navbarAP';
 import Footer from './components/footer';
 import "./App.css";
@@ -9,11 +9,14 @@ import routesAP from './routesAP';
 
 function App() {
   return (
-      <AppContent />
-  );
-}
+    <Router>
+      <Appcontent />
+    </Router>
+  )
+};
 
-function AppContent() {
+function Appcontent() {
+
   const location = useLocation();
   const allRoutes = [...routes, ...routesAP];
 
@@ -28,6 +31,9 @@ function AppContent() {
     }
   }, [location]);
 
+
+  // children - 包含傳入的所有子元素
+  // 經過PageWrapper為頁面套一段router.title的標題文字
   function PageWrapper({ children }) {
     return (
       <>
@@ -36,7 +42,7 @@ function AppContent() {
         </div>
         {children}
       </>
-    );
+    )
   }
 
   return (

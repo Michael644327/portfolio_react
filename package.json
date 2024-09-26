@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://michael644327.github.io/portfolio/",
+  "homepage": "/portfolio/",
   "dependencies": {
     "@mui/material": "^6.1.1",
     "@popperjs/core": "^2.11.8",
@@ -45,5 +45,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^6.1.1"
   }
 }
