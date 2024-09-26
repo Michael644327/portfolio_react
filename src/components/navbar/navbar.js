@@ -9,8 +9,7 @@ function Navbar() {
             <nav className="navbar navbar-expand-lg py-3 navbar-dark bg-dark">
                 <div className="container">
                     <a className="navbar-brand" href="/portfolio/">
-                        <img src="/img/mmm.jpg" className="align-middle me-1 img-fluid logo" alt="My Website" />
-                        My Portfolio</a>
+                        <img src="/img/mmm.jpg" className="align-middle me-1 img-fluid logo" alt="My Website" /></a>
 
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#myNavbar4" aria-controls="myNavbar4" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>
@@ -29,7 +28,8 @@ function Navbar() {
                                     <ul className="dropdown-menu">
                                         {route.children.map((child) => (
                                             <li key={child.path}>
-                                                <Link to={child.path} className="dropdown-item">
+                                                <Link to={child.path} className="dropdown-item" 
+                                                target={child.ltype === "outside" ? "_blank": "_self"}>
                                                     {child.name}
                                                 </Link>
                                             </li>
