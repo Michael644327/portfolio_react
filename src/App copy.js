@@ -8,15 +8,6 @@ import routes from './routes';
 import routesAP from './routesAP';
 
 function App() {
-  return (
-    <Router>
-      <Appcontent />
-    </Router>
-  )
-};
-
-function Appcontent() {
-
   const location = useLocation();
   const allRoutes = [...routes, ...routesAP];
 
@@ -50,6 +41,7 @@ function Appcontent() {
       <div className='maincontainer'>
         {isAniPara ? <AnimalParaNavbar /> : <Navbar />}
         <main>
+        <Router>
           <Routes>
             {allRoutes.map(({ path, element: Component }) => (
               <Route key={path} path={path} element={
@@ -58,6 +50,7 @@ function Appcontent() {
                 </PageWrapper>} />
             ))}
           </Routes>
+          </Router>
         </main>
         <Footer />
       </div>
