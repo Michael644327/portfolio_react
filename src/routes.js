@@ -12,7 +12,7 @@ const routes = [
       { path: "/classwork/booklist", element: BookList, name: "書本清單篩選" },
     ]
   },
-  {
+{
     name: "作品集",
     children: [
       { path: "/animalpara", element: AnimalPara, name: "動物樂園" },

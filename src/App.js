@@ -9,7 +9,7 @@ import routesAP from './routesAP';
 
 function App() {
   return (
-      <AppContent />
+    <AppContent />
   );
 }
 
@@ -31,9 +31,11 @@ function AppContent() {
   function PageWrapper({ children }) {
     return (
       <>
-        <div className='title col-12 bg-dark text-center text-white p-3'>
-          <h2>{currentRoute?.title || ''}</h2>
-        </div>
+        {!currentRoute.title ? (<></>) : (
+          <div className='title col-12 bg-dark text-center text-white p-3'>
+            <h2>{currentRoute.title}</h2>
+          </div>
+        )}
         {children}
       </>
     );
