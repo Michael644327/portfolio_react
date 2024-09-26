@@ -41,7 +41,7 @@ function App() {
       <div className='maincontainer'>
         {isAniPara ? <AnimalParaNavbar /> : <Navbar />}
         <main>
-        <Router basename="/portfolio">
+        <Router>
           <Routes>
             {allRoutes.map(({ path, element: Component }) => (
               <Route key={path} path={path} element={
