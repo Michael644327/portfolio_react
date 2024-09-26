@@ -4,10 +4,10 @@ import { Link } from "react-router-dom";
 const SalesProduct = () => {
 
     const salesItem = [
-        { src: '/img/animalpara/catfood_01.jpg', href: '/product/1', name: '貓貓凍乾', states: 'HOT' },
-        { src: '/img/animalpara/littlefood_01.jpg', href: './product', name: '倉鼠飼料', states: 'SALE' },
-        { src: '/img/animalpara/catfood_03.jpg', href: './product', name: '貓乾乾', states: 'soldout' },
-        { src: '/img/animalpara/dogfood_04.jpg', href: './product', name: '狗飼料 - 運動配方', states: '' },
+        { src: '/portfolio/img/animalpara/catfood_01.jpg', href: '/product/1', name: '貓貓凍乾', states: 'HOT' },
+        { src: '/portfolio/img/animalpara/littlefood_01.jpg', href: './product', name: '倉鼠飼料', states: 'SALE' },
+        { src: '/portfolio/img/animalpara/catfood_03.jpg', href: './product', name: '貓乾乾', states: 'soldout' },
+        { src: '/portfolio/img/animalpara/dogfood_04.jpg', href: './product', name: '狗飼料 - 運動配方', states: '' },
     ]
 
 
