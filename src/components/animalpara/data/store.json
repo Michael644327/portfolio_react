@@ -1,0 +1,20 @@
+[
+    {
+        "id": "1",
+        "image": "./img/animalpara/catmeme_02.gif",
+        "store": "台北店",
+        "info": "本月員工旅遊，暫停營業。"
+    },
+    {
+        "id": "2",
+        "image": "./img/animalpara/catmeme_01.gif",
+        "store": "非洲店",
+        "info": "本分店由於近期太過炎熱，暫停營業。"
+    },
+    {
+        "id": "3",
+        "image": "./img/animalpara/catmeme_01.gif",
+        "store": "南極店",
+        "info": "本分店由於近期太過寒冷，暫停營業。"
+    }
+]
