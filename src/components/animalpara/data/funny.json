@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "image": "./img/animalpara/collage-maker-06.jpg",
+        "title": "摸不著頭腦",
+        "describe": "從前從前有一隻企鵝，牠摸不著頭腦"
+    },
+    {
+        "id": "2",
+        "image": "./img/animalpara/collage-maker-07.jpg",
+        "title": "狐猴的糾葛",
+        "describe": "天地有情、人生無常，\n是事出有因 ? 是非善惡的因果循環, 還是天意作弄？\n到底是情愛的糾葛 ; 命運的糾纏 , 金錢的誘惑 ; 還是利益的衝突\n是否種下日後一切糾葛的種子 , 因而埋下了殺機呢？\n在冥冥之中,自有安排"
+    },
+    {
+        "id": "3",
+        "image": "./img/animalpara/collage-maker-10.jpg",
+        "title": "是在哈囉",
+        "describe": "早安，午安，晚安\n祝您喜樂平安"
+    },
+    {
+        "id": "4",
+        "image": "./img/animalpara/collage-maker-09.jpg",
+        "title": "這種時候只要笑就好了",
+        "describe": "每天都要微笑\n有益身心健康"
+    }
+]
