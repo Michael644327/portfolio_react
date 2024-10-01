@@ -9,14 +9,14 @@ const IndexPage = () => {
 
   return (
     <>
-        <div class="bg-primary bg-opacity-50 pb-5">
+        <div className="bg-primary bg-opacity-50 pb-5">
           <HomeSection1 />
         </div>
-        <div class="bg-success bg-gradient bg-opacity-50">
+        <div className="bg-success bg-gradient bg-opacity-50">
           <HomeSection2 />
         </div>
 
-        <div class="p-3 bg-warning bg-opacity-50">
+        <div className="p-3 bg-warning bg-opacity-50">
           <HomeSection3 />
         </div>
         <div className="bg-info bg-opacity-50 pb-5">

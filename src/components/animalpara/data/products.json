@@ -1,20 +1,132 @@
 [
     {
         "id": "1",
-        "image": "./img/animalpara/catmeme_02.gif",
-        "product": "台北店",
-        "info": "本月員工旅遊，暫停營業。"
+        "image": "./img/animalpara/dogfood_01.jpg",
+        "product": "狗飼料-小型犬配方",
+        "category": "dog",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": [
+            "70%優質肉含量，多樣新鮮完整動物食材、豐富蛋白質和脂肪，滿足成長發育所需營養。",
+            "小型幼犬成長過程非常快速，需要新鮮完整動物食材的豐富蛋白質和脂肪，來達到適當的成長。",
+            "ACANA Puppy Small Breed 挑嘴幼犬飼料，70%優質肉含量，30%新鮮蔬果、草本植物及營養素。",
+            "使用新鮮巢蛋、放養雞肉、野生漁獲，完整獵食比例，不含任何穀物、木薯粉或馬鈴薯。",
+            "所有的食材都是由我們了解且信賴的供應商，每日新鮮或生鮮的狀態直達我們的廚房。"
+        ]
     },
     {
         "id": "2",
-        "image": "./img/animalpara/catmeme_01.gif",
-        "store": "非洲店",
-        "info": "本分店由於近期太過炎熱，暫停營業。"
+        "image": "./img/animalpara/dogfood_02.jpg",
+        "product": "狗飼料-成年犬配方",
+        "category": "dog",
+        "fullName": "加拿大 愛肯拿肉食成年犬配方飼料 (放養雞肉+捕撈魚肉)",
+        "price": "1160",
+        "describe": [
+            "愛肯拿小型犬成犬以當地自由放養雞與完整雞蛋、野生捕撈的比目魚，每日新鮮送達廚房，獨一無二的營養美味。",
+            "完全無穀且不含快糖，例如白米、木薯粉或馬鈴薯，愛肯拿富含肉類蛋白質，讓您的愛犬達到生理的巔峰狀態。",
+            "於我們獲獎無數的廚房內，用加拿大新鮮及最優質的當地原物料製作，愛肯拿讓您的愛寵快樂、健康茁壯的成長。",
+            "閱讀我們的食品成份，相信您也會同意。"
+        ]
     },
     {
         "id": "3",
-        "image": "./img/animalpara/catmeme_01.gif",
-        "store": "南極店",
-        "info": "本分店由於近期太過寒冷，暫停營業。"
+        "image": "./img/animalpara/dogfood_03.jpg",
+        "product": "狗飼料-草飼羊肉",
+        "category": "dog",
+        "fullName": "加拿大 愛肯拿草飼羊肉配方飼料",
+        "price": "1160",
+        "describe": [
+            "<b>有多少肉？</b>\n完全不含植物性蛋白質，愛肯拿草飼羊肉含50%羊肉。",
+            "<b>有多少新鮮的肉？</b>\n愛肯拿單一動物性蛋白系列內含1/2生鮮羊肉，另外1/2經過乾燥。所有肉類都通過人類食用等級。",
+            "<b>有幾種肉？</b>\n愛肯拿單一動物性蛋白系列含單一來源的動物性蛋白質，有完整獵食比例的肉類、內臟及軟骨。\n草食羊－羊肉、羊肝、羊心、羊腎及羊軟骨，皆是新鮮來自當地牧場。",
+            "<b>只有4種添加物</b>\n與市面上的傳統狗食品截然不同，愛肯拿的豐富肉含量及完整獵食的黃金比例能夠提供天然營養素，不需要一長串的添加物。"
+        ]
+    },
+    {
+        "id": "4",
+        "image": "./img/animalpara/dogfood_04.jpg",
+        "product": "狗飼料-運動配方",
+        "category": "dog",
+        "fullName": "加拿大 愛肯拿運動配方飼料",
+        "price": "1160",
+        "describe": [
+            "<b>無論是牧羊犬，或是其他活動量高的狗都需要富含新鮮肉類、蛋白質及脂肪的飲食來維持活動力及耐力</b>",
+            "愛肯拿高活動量犬含肉量高達75%，以當地自由放養雞與完整雞蛋、北溫哥華群島野生捕撈的比目魚，每日新鮮送達廚房，獨一無二的營養美味。",
+            "完全無穀且不含快糖，例如白米、木薯粉或馬鈴薯，愛肯拿含低升醣蔬菜水果，包含新鮮南瓜及冬南瓜。",
+            "於我們獲獎無數的廚房內，用加拿大新鮮及最優質的當地原物料製作，愛肯拿讓您的愛寵快樂、健康茁壯的成長。",
+            "閱讀我們的食品成份，相信您也會同意。"
+        ]
+    },
+    {
+        "id": "5",
+        "image": "./img/animalpara/catfood_01.jpg",
+        "product": "貓貓凍乾",
+        "category": "cat",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": []
+    },
+    {
+        "id": "6",
+        "image": "./img/animalpara/catfood_02.jpg",
+        "product": "離氨酸",
+        "category": "cat",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": []
+    },
+    {
+        "id": "7",
+        "image": "./img/animalpara/catfood_03.jpg",
+        "product": "貓乾乾",
+        "category": "cat",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": []
+    },
+    {
+        "id": "8",
+        "image": "./img/animalpara/catfood_04.jpg",
+        "product": "貓罐頭",
+        "category": "cat",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": []
+    },
+    {
+        "id": "9",
+        "image": "./img/animalpara/littlefood_01.jpg",
+        "product": "倉鼠飼料",
+        "category": "little",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": []
+    },
+    {
+        "id": "10",
+        "image": "./img/animalpara/littlefood_02.jpg",
+        "product": "天竺鼠飼料",
+        "category": "little",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": []
+    },
+    {
+        "id": "11",
+        "image": "./img/animalpara/littlefood_03.jpg",
+        "product": "兔子飼料",
+        "category": "little",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": []
+    },
+    {
+        "id": "12",
+        "image": "./img/animalpara/littlefood_04.jpg",
+        "product": "龍貓飼料",
+        "category": "little",
+        "fullName": "加拿大 愛肯拿挑嘴幼犬無穀配方飼料 (放養雞肉+新鮮蔬果)",
+        "price": "1160",
+        "describe": []
     }
 ]
