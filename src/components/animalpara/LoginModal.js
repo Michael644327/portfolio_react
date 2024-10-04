@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useState, useEffect } from "react";
+import LoginForm from "./LoginForm";
 
-function LoginModal({ handleClose, show }) {
+const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
   const modalRef = useRef(null);
 
   useEffect(() => {
@@ -9,13 +10,9 @@ function LoginModal({ handleClose, show }) {
         handleClose();
       }
     }
-
-    // 只在 modal 顯示時添加事件監聽器
     if (show) {
       document.addEventListener("mousedown", handleClickOutside);
     }
-
-    // 清理函數
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
@@ -24,6 +21,11 @@ function LoginModal({ handleClose, show }) {
   if (!show) {
     return null;
   }
+
+  const handleLogout = () => {
+    setIsLogin({ email: '', password: '' });    // 清除狀態
+    localStorage.removeItem('isLoggedIn');      // 從 localStorage 中移除登入狀態
+  };
 
   return (
     <>
@@ -35,38 +37,21 @@ function LoginModal({ handleClose, show }) {
         aria-hidden="false"
       >
         <div className="modal-dialog" ref={modalRef}>
-          <div className="modal-content">
-            <div className="form-border">
-              <form action="#" className="needs-validation" noValidate>
-                <h2 className="text-center">會員登入</h2>
-                <div className="mb-3">
-                  <label htmlFor="account" className="form-label">帳號</label>
-                  <input type="text" className="form-control" id="account" name="account" required />
-                  <div className="invalid-feedback">
-                    此為必填欄位
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <label htmlFor="password" className="form-label">密碼</label>
-                  <input type="password" className="form-control" id="password" required />
-                  <div className="invalid-feedback">
-                    此為必填欄位
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <div className="form-check-1">
-                    <input className="remember" type="checkbox" id="remember" />
-                    <label className="remember" htmlFor="remember">
-                      記得我
-                    </label>
-                  </div>
-                </div>
-                <div className="d-grid justify-content-md-end">
-                  <input className="btn btn-primary" type="submit" value="登入" />
-                </div>
-              </form>
+          {isLogin.email ? (
+            <div className="modal-content">
+              <div className="form-border">
+                <p>帳號: {isLogin.email}</p>
+                <button onClick={handleLogout}>登出</button>
+              </div>
             </div>
-          </div>
+          ) : (
+            <div className="modal-content">
+              <div className="form-border">
+                <LoginForm handleClose={handleClose} isLogin={isLogin} setIsLogin={setIsLogin} />
+              </div>
+            </div>
+
+          )}
         </div>
       </div>
     </>

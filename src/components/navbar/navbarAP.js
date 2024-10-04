@@ -4,11 +4,9 @@ import routesAP from '../../routesAP';
 import "../styles/navbar.css";
 import LoginModal from '../animalpara/LoginModal';
 
-function Navbar() {
+const NavbarAP = ({isLogin, setIsLogin}) => {
     const location = useLocation();
-
     const [showModal, setShowModal] = useState(false);
-
     const handleModalOpen = () => setShowModal(true);
     const handleModalClose = () => setShowModal(false);
 
@@ -35,12 +33,14 @@ function Navbar() {
                                     <i className="bi bi-person-circle"></i>
                                 </button>
                             </li>
-                            <li className="position-relative">
-                                <button type="button" className="btn btn-primary">
-                                    <i className="bi bi-chat-left-dots-fill"></i>
-                                </button>
-                                <span className="bg-danger text-white position-absolute noticeicon px-2 rounded-circle">3</span>
-                            </li>
+                            {isLogin.email ? (
+                                <li className="position-relative">
+                                    <button type="button" className="btn btn-primary">
+                                        <i className="bi bi-chat-left-dots-fill"></i>
+                                    </button>
+                                    <span className="bg-danger text-white position-absolute noticeicon px-2 rounded-circle">3</span>
+                                </li>
+                            ) : ''}
                             <li className="position-relative">
                                 <button type="button" className="btn btn-primary">
                                     <i className="bi bi-cart2"></i>
@@ -50,9 +50,11 @@ function Navbar() {
                     </div>
                 </div>
             </nav>
-            <LoginModal show={showModal} handleClose={handleModalClose} />
+            <LoginModal 
+            isLogin={isLogin} setIsLogin={setIsLogin} 
+            show={showModal} handleClose={handleModalClose} />
         </>
     );
 }
 
-export default Navbar;
+export default NavbarAP;

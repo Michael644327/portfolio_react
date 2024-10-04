@@ -1,6 +1,7 @@
 import Home from './pages/Home';
 import Calacular from './pages/javascripts/pages/calacular';
 import BookList from './pages/javascripts/pages/booklist';
+import Login from './pages/javascripts/pages/login';
 import AnimalPara from './pages/animalpara/index';
 
 const routes = [
@@ -10,6 +11,7 @@ const routes = [
     children: [
       { path: "/classwork/calacular", element: Calacular, name: "計算機" },
       { path: "/classwork/booklist", element: BookList, name: "書本清單篩選" },
+      { path: "/classwork/login", element: Login, name: "登入" },
     ]
   },
 {
@@ -22,7 +24,9 @@ const routes = [
   {
     name: "VUE練習",
     path: "/vue/"
-  }
+  },
+  { path: "/classwork/login", element: Login }
+
 ];
 
 export default routes;

@@ -1,13 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Routes, Route, useLocation, matchPath } from 'react-router-dom';
 import Navbar from './components/navbar/navbar';
-import AnimalParaNavbar from './components/navbar/navbarAP';
+import NavbarAP from './components/navbar/navbarAP';
 import Footer from './components/footer';
 import "./App.css";
 import routes from './routes';
 import routesAP from './routesAP';
 
 function App() {
+
   return (
     <AppContent />
   );
@@ -16,6 +17,7 @@ function App() {
 function AppContent() {
   const location = useLocation();
   const allRoutes = [...routes, ...routesAP];
+  const [isLogin, setIsLogin] = useState({ email: '', password: '' });
 
   // const currentRoute = allRoutes.find(route => route.path === location.pathname);
   const currentRoute = allRoutes.find(route => route?.path && matchPath(route.path, location.pathname));
@@ -45,7 +47,7 @@ function AppContent() {
   return (
     <>
       <div className='maincontainer'>
-        {isAniPara ? <AnimalParaNavbar /> : <Navbar />}
+        {isAniPara ? <NavbarAP isLogin={isLogin} setIsLogin={setIsLogin} /> : <Navbar />}
         <main>
           <Routes>
             {allRoutes.map(({ path, element: Component, title, h2Title }) => (
