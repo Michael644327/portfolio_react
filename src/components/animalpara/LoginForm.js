@@ -1,21 +1,26 @@
 import React, { useEffect, useState } from "react";
 import UserData from "./data/userdata.json"
+import MultiClick from "./MultiClick";
 
-const LoginForm = ({ handleClose, show, isLogin, setIsLogin }) => {
+const LoginForm = ({ handleClose, setIsLogin }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  // const [isLogin, setIsLogin] = useState(false);
+  const [rememberMe, setRememberMe] = useState(false);
   const [loginUser, setLoginUser] = useState(null);
   const [loginError, setLoginError] = useState('');
+  const [qLogin, setQLogin] = useState(false);
+
 
   useEffect(() => {
-    const storedUser = localStorage.getItem('loginUser');
-    if (storedUser) {
-      setIsLogin(true);
-      setLoginUser(JSON.parse(storedUser));
+    const savedUsername = localStorage.getItem('rememberedUsername');
+    const savedPassword = localStorage.getItem('rememberedPassword');
+
+    if (savedUsername && savedPassword) {
+      setUsername(savedUsername);
+      setPassword(savedPassword);
+      setRememberMe(true);  // Automatically check "Remember Me"
     }
   }, []);
-
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -38,21 +43,24 @@ const LoginForm = ({ handleClose, show, isLogin, setIsLogin }) => {
     }
   }
 
+  const toggleQuickLogin = () => {
+    setQLogin(!qLogin)
+  }
   const quickLogin = (qUser) => {
     setUsername(qUser.username);
     setPassword(qUser.password);
   }
 
-    // 登出
-    const handleLogout = () => {
-      setIsLogin(false);    // 清除狀態
-      localStorage.removeItem('loginUser');      // 從 localStorage 中移除登入狀態
-    };
+  const handleRememberMeChange = () => {
+    setRememberMe(!rememberMe);
+  };
 
   return (
     <>
       <form onSubmit={handleLogin} className="needs-validation" noValidate>
-        <h2 className="text-center" onClick={quickLogin}>會員登入</h2>
+        <MultiClick onMultiClick={toggleQuickLogin} clickThreshold={3}>
+          <h2 className="text-center">會員登入</h2>
+        </MultiClick>
         {loginError && <div className="alert alert-danger">{loginError}</div>}
         <div className="mb-3">
           <label htmlFor="account" className="form-label">帳號</label>
@@ -75,7 +83,9 @@ const LoginForm = ({ handleClose, show, isLogin, setIsLogin }) => {
         </div>
         <div className="mb-3">
           <div className="form-check-1">
-            <input className="remember" type="checkbox" id="remember" />
+            <input className="remember" type="checkbox" id="remember"
+              checked={rememberMe}
+              onChange={handleRememberMeChange} />
             <label className="remember" htmlFor="remember">
               記得我
             </label>
@@ -85,15 +95,15 @@ const LoginForm = ({ handleClose, show, isLogin, setIsLogin }) => {
           <input className="btn btn-primary" type="submit" value="登入" />
         </div>
       </form>
-      <div className='col-6'>
+      <div className={`quickLogin ${qLogin ? 'd-blcok' : 'd-none'}`}>
         <h3>快速登入</h3>
         <ul>
-        {UserData.map((qUser) => 
+          {UserData.map((qUser) =>
           (
-            <li key={qUser.id} onClick={()=>quickLogin(qUser)}>{qUser.username}</li>
+            <li key={qUser.id} onClick={() => quickLogin(qUser)}>{qUser.username}</li>
           )
-        )
-        }
+          )
+          }
         </ul>
       </div>
     </>

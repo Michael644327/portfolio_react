@@ -5,8 +5,9 @@ import "../styles/navbar.css";
 import LoginModal from '../animalpara/LoginModal';
 import ShoppingCarModal from '../animalpara/ShoppingCarModal';
 
-const NavbarAP = ({isLogin, setIsLogin}) => {
+const NavbarAP = () => {
     const location = useLocation();
+    const [isLogin, setIsLogin] = useState(false);
 
     const [loginModal, setLoginModal] = useState(false);
     const handleLoginlOpen = () => setLoginModal(true);
@@ -15,7 +16,6 @@ const NavbarAP = ({isLogin, setIsLogin}) => {
     const [shoppingModal, setShoppingModal] = useState(false);
     const handleShoppingOpen = () => setShoppingModal(true);
     const handleShoppingClose = () => setShoppingModal(false);
-
 
     return (
         <>
@@ -40,7 +40,7 @@ const NavbarAP = ({isLogin, setIsLogin}) => {
                                     <i className="bi bi-person-circle"></i>
                                 </button>
                             </li>
-                            {isLogin.email ? (
+                            {isLogin ? (
                                 <li className="position-relative">
                                     <button type="button" className="btn btn-primary">
                                         <i className="bi bi-chat-left-dots-fill"></i>

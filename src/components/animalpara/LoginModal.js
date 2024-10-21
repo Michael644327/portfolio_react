@@ -5,6 +5,13 @@ const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
   const modalRef = useRef(null);
   const [loginUser, setLoginUser] = useState(null);
 
+  useEffect(() => {
+    const storedUser = localStorage.getItem('loginUser');
+    if (storedUser) {
+      setIsLogin(true);
+      setLoginUser(JSON.parse(storedUser));
+    }
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -43,7 +50,7 @@ const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
             <div className="modal-content">
               <div className="form-border">
                 <p>帳號: {isLogin.email}
-                {loginUser}</p>
+                {loginUser.nickname}</p>
                 <button onClick={handleLogout}>登出</button>
               </div>
             </div>
