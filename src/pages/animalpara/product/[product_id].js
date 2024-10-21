@@ -24,14 +24,18 @@ const ProductDetailPage = () => {
             <img src={product.image} alt={product.product} className="w-100" layout="responsive" />
           </div>
           <div className="col-12 col-lg-8">
-          <h2 className="font-bold">{product.fullName}</h2>
+            <h2 className="font-bold">{product.fullName}</h2>
             <ul className="list-disc list-inside">
               {product.describe.map((item, index) => (
-                <li key={index} className="mb-2" dangerouslySetInnerHTML={{ __html: item }} style={{whiteSpace:"pre-wrap"}} />
+                <li key={index} className="mb-2" dangerouslySetInnerHTML={{ __html: item }} style={{ whiteSpace: "pre-wrap" }} />
               ))}
             </ul>
-            <p className="text-xl font-semibold mb-2">價格: ${product.price}</p>
-            <p className="mb-4">分類: {product.category}</p>
+            <p className="text-xl font-semibold mb-2">單價: ${product.price}</p>
+            <div className="pt-3 row">
+              <div className="col-2">購買數量</div>
+              <div className="col-2"><input type="number" class="form-control" id="name" placeholder="1" />
+              </div>
+            </div>
           </div>
         </div>
       </div>

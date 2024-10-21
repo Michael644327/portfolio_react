@@ -3,6 +3,8 @@ import LoginForm from "./LoginForm";
 
 const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
   const modalRef = useRef(null);
+  const [loginUser, setLoginUser] = useState(null);
+
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -23,8 +25,8 @@ const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
   }
 
   const handleLogout = () => {
-    setIsLogin({ email: '', password: '' });    // 清除狀態
-    localStorage.removeItem('isLoggedIn');      // 從 localStorage 中移除登入狀態
+    setIsLogin(false);    // 清除狀態
+    localStorage.removeItem('loginUser');      // 從 localStorage 中移除登入狀態
   };
 
   return (
@@ -37,10 +39,11 @@ const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
         aria-hidden="false"
       >
         <div className="modal-dialog" ref={modalRef}>
-          {isLogin.email ? (
+          {isLogin ? (
             <div className="modal-content">
               <div className="form-border">
-                <p>帳號: {isLogin.email}</p>
+                <p>帳號: {isLogin.email}
+                {loginUser}</p>
                 <button onClick={handleLogout}>登出</button>
               </div>
             </div>

@@ -1,35 +1,24 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import UserData from "./data/userdata.json"
 
 const LoginForm = ({ handleClose, show, isLogin, setIsLogin }) => {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // const [isLogin, setIsLogin] = useState(false);
-  const [loginUser, setLoginUser] = useState(null);
   const [loginError, setLoginError] = useState('');
-
-  useEffect(() => {
-    const storedUser = localStorage.getItem('loginUser');
-    if (storedUser) {
-      setIsLogin(true);
-      setLoginUser(JSON.parse(storedUser));
-    }
-  }, []);
-
 
   const handleLogin = (e) => {
     e.preventDefault();
     try {
-      const user = UserData.find(user => user.username === username);
+
+      const user = UserData.find(user => user.username === email);
 
       if (!user) {
         setLoginError('無此帳號');
       } else if (user.password !== password) {
         setLoginError('密碼錯誤');
       } else {
-        setIsLogin(true);  // 更新父層狀態
-        setLoginUser(user);
-        localStorage.setItem('loginUser', JSON.stringify(user));  // 保存登入狀態到 localStorage
+        setIsLogin({ email, password });  // 更新父層狀態
+        localStorage.setItem('isLoggedIn', true);  // 保存登入狀態到 localStorage
         handleClose();
       }
     } catch (error) {
@@ -37,17 +26,9 @@ const LoginForm = ({ handleClose, show, isLogin, setIsLogin }) => {
       setLoginError('登入失敗，請稍後再試')
     }
   }
-
-  const quickLogin = (qUser) => {
-    setUsername(qUser.username);
-    setPassword(qUser.password);
-  }
-
-    // 登出
-    const handleLogout = () => {
-      setIsLogin(false);    // 清除狀態
-      localStorage.removeItem('loginUser');      // 從 localStorage 中移除登入狀態
-    };
+  const quickLogin = (
+    console.log('aaa')
+  )
 
   return (
     <>
@@ -56,8 +37,8 @@ const LoginForm = ({ handleClose, show, isLogin, setIsLogin }) => {
         {loginError && <div className="alert alert-danger">{loginError}</div>}
         <div className="mb-3">
           <label htmlFor="account" className="form-label">帳號</label>
-          <input value={username}
-            onChange={(e) => setUsername(e.target.value)}
+          <input value={email}
+            onChange={(e) => setEmail(e.target.value)}
             type="email" className="form-control"
             id="account" name="account" required />
           <div className="invalid-feedback">
@@ -85,17 +66,6 @@ const LoginForm = ({ handleClose, show, isLogin, setIsLogin }) => {
           <input className="btn btn-primary" type="submit" value="登入" />
         </div>
       </form>
-      <div className='col-6'>
-        <h3>快速登入</h3>
-        <ul>
-        {UserData.map((qUser) => 
-          (
-            <li key={qUser.id} onClick={()=>quickLogin(qUser)}>{qUser.username}</li>
-          )
-        )
-        }
-        </ul>
-      </div>
     </>
   );
 }

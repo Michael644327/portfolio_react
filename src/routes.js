@@ -14,18 +14,20 @@ const routes = [
       { path: "/classwork/login", element: Login, name: "登入" },
     ]
   },
-{
+  {
     name: "作品集",
     children: [
       { path: "/animalpara", element: AnimalPara, name: "動物樂園" },
-      { path: "https://github.com/Michael644327/knock2-project", name:"密室逃脫-悄瞧 (github)" , ltype:"outside"}
+      { path: "https://github.com/Michael644327/knock2-project", name: "密室逃脫-悄瞧 (github)", ltype: "outside" }
     ]
   },
   {
     name: "VUE練習",
     path: "/vue/"
   },
-  { path: "/classwork/login", element: Login }
+  { path: "/classwork/login", element: Login },
+  { path: "/classwork/calacular", element: Calacular },
+  { path: "/classwork/booklist", element: BookList },
 
 ];
 

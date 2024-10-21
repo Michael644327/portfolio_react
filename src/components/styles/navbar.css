@@ -11,6 +11,10 @@
     filter: drop-shadow(0 0 1em #fbff00);
 }
 
+.navbar{
+    background-image: url(../../../public/black-textured-surface.png);
+    background-repeat: repeat-x;
+}
 .navbar-bt .nav-Link{
     color:#FFF;
     padding-right: 0.5rem;

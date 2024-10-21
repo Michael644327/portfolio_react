@@ -24,10 +24,6 @@ const routesBt = [
     proj: "AnimalPara", title: "門市介紹", name: "門市介紹", h2Title: "true"
   },
   {
-    path: "/animalpara/product/:product_id", element: ProductDetailPage,
-    proj: "AnimalPara", title: "商品詳情", name: "商品詳情"
-  },
-  {
     path: "/animalpara/product", element: ProductPage,
     proj: "AnimalPara", title: "商品一覽", name: "商品一覽", h2Title: "true"
   },
@@ -35,6 +31,10 @@ const routesBt = [
     path: "/animalpara/contact", element: ContactPage,
     proj: "AnimalPara", title: "聯絡我們", name: "聯絡我們", h2Title: "true"
   },
+  {
+    path: "/animalpara/product/:product_id", element: ProductDetailPage,
+    proj: "AnimalPara"
+  }
 ];
 
 export default routesBt;
