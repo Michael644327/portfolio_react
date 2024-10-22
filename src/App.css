@@ -47,6 +47,6 @@ nav, footer {
   flex-shrink: 0; /* 確保 Navbar 和 Footer 不會被壓縮 */
 }
 main{
-  padding:20px;
+  /* padding:20px; */
   overflow-y: auto;
 }

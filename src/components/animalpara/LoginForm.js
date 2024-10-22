@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import UserData from "./data/userdata.json"
 import MultiClick from "./MultiClick";
 
-const LoginForm = ({ handleClose, setIsLogin }) => {
+const LoginForm = ({ handleClose, setIsLogin, setLoginUser }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-  const [loginUser, setLoginUser] = useState(null);
+  // const [loginUser, setLoginUser] = useState(null);
   const [loginError, setLoginError] = useState('');
   const [qLogin, setQLogin] = useState(false);
 

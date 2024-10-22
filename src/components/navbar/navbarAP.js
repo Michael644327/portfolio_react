@@ -3,12 +3,21 @@ import { Link, useLocation } from 'react-router-dom';
 import routesAP from '../../routesAP';
 import "../styles/navbar.css";
 import LoginModal from '../animalpara/LoginModal';
-import ShoppingCarModal from '../animalpara/ShoppingCarModal';
+import ShoppingCar from '../animalpara/ShoppingCar';
 
 const NavbarAP = () => {
     const location = useLocation();
     const [isLogin, setIsLogin] = useState(false);
+    const [loginUser, setLoginUser] = useState(null);
+    const [shoppingCart, setShoppingCart] = useState([]);
 
+    // const [shoppingCart, setShoppingCart] = useState({
+    //     userId: "",
+    //     items: [],
+    //     totalAmount: 0,
+    //     lastUpdated: ""
+    //   });
+    
     const [loginModal, setLoginModal] = useState(false);
     const handleLoginlOpen = () => setLoginModal(true);
     const handleLoginClose = () => setLoginModal(false);
@@ -36,7 +45,7 @@ const NavbarAP = () => {
                         </ul>
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <li className="position-relative">
-                                <button type="button" className="btn btn-primary" onClick={handleLoginlOpen}>
+                                <button type="button" className="btn btn-black text-white" onClick={handleLoginlOpen}>
                                     <i className="bi bi-person-circle"></i>
                                 </button>
                             </li>
@@ -49,7 +58,7 @@ const NavbarAP = () => {
                                 </li>
                             ) : ''}
                             <li className="position-relative">
-                                <button type="button" className="btn btn-primary" onClick={handleShoppingOpen}>
+                                <button type="button" className="btn btn-black text-white" onClick={handleShoppingOpen}>
                                     <i className="bi bi-cart2"></i>
                                 </button>
                             </li>
@@ -59,8 +68,11 @@ const NavbarAP = () => {
             </nav>
             <LoginModal 
             isLogin={isLogin} setIsLogin={setIsLogin} 
+            loginUser={loginUser} setLoginUser={setLoginUser}
             show={loginModal} handleClose={handleLoginClose} />
-            <ShoppingCarModal
+            <ShoppingCar
+             isLogin={isLogin} loginUser={loginUser}
+             cartItems={shoppingCart} setCartItems={setShoppingCart}
             show={shoppingModal} handleClose={handleShoppingClose} />
         </>
     );

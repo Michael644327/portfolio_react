@@ -1,9 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 import LoginForm from "./LoginForm";
 
-const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
+const LoginModal = ({ handleClose, show, isLogin, setIsLogin, loginUser, setLoginUser }) => {
   const modalRef = useRef(null);
-  const [loginUser, setLoginUser] = useState(null);
 
   useEffect(() => {
     const storedUser = localStorage.getItem('loginUser');
@@ -11,7 +10,7 @@ const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
       setIsLogin(true);
       setLoginUser(JSON.parse(storedUser));
     }
-  }, []);
+  }, [setIsLogin, setLoginUser]);
 
   useEffect(() => {
     function handleClickOutside(event) {
@@ -57,7 +56,9 @@ const LoginModal = ({ handleClose, show, isLogin, setIsLogin }) => {
           ) : (
             <div className="modal-content">
               <div className="form-border">
-                <LoginForm handleClose={handleClose} isLogin={isLogin} setIsLogin={setIsLogin} />
+                <LoginForm handleClose={handleClose} 
+                isLogin={isLogin} setIsLogin={setIsLogin}
+                setLoginUser={setLoginUser} />
               </div>
             </div>
 
