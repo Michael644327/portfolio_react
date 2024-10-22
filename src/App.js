@@ -17,7 +17,7 @@ function App() {
 function AppContent() {
   const location = useLocation();
   const allRoutes = [...routes, ...routesAP];
-  const [isLogin, setIsLogin] = useState({ email: '', password: '' });
+  // const [isLogin, setIsLogin] = useState({ email: '', password: '' });
 
   // const currentRoute = allRoutes.find(route => route.path === location.pathname);
   const currentRoute = allRoutes.find(route => route?.path && matchPath(route.path, location.pathname));
@@ -47,7 +47,7 @@ function AppContent() {
   return (
     <>
       <div className='maincontainer'>
-        {isAniPara ? <NavbarAP isLogin={isLogin} setIsLogin={setIsLogin} /> : <Navbar />}
+        {isAniPara ? <NavbarAP /> : <Navbar />}
         <main>
           <Routes>
             {allRoutes.map(({ path, element: Component, title, h2Title }) => (

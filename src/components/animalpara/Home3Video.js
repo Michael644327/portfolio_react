@@ -6,19 +6,20 @@ const HomeSection3 = () => {
 
     return (
         <>
-            <div className="row py-15">
-                <div className="col-12">
-                    <h2 className="text-center py-5">本週精選影片</h2>
-                </div>
-
-                {VideoEmbed.map((v, i) => (
-                    <div key={i} className="col-12 col-lg-6">
-                        <div className="ratio ratio-16x9">
-                            <iframe src={v.src} width="100%" height="400" title={v.name}></iframe>
-                        </div>
+            <div className="container">
+                <div className="row py-15">
+                    <div className="col-12">
+                        <h2 className="text-center py-5">本週精選影片</h2>
                     </div>
-                ))}
-            </div>
+
+                    {VideoEmbed.map((v, i) => (
+                        <div key={i} className="col-12 col-lg-6">
+                            <div className="ratio ratio-16x9">
+                                <iframe src={v.src} width="100%" height="400" title={v.name}></iframe>
+                            </div>
+                        </div>
+                    ))}
+                </div>            </div>
         </>
     )
 }

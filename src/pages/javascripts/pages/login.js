@@ -52,48 +52,49 @@ const Login = () => {
   }
 
   return (
-    <div className='row'>
-      <div className='col-6'>
-        {isLogin ? (
-          <div>
-            <p>歡迎登入<br />
-              {loginUser.nickname}</p>
-            <button onClick={handleLogout}>登出</button>
-          </div>
-        ) : (
-          <form onSubmit={handleLogin}>
+    <div className='container'>
+      <div className='row py-2'>
+        <div className='col-6'>
+          {isLogin ? (
             <div>
-              <label>Email</label>
-              <input
-                type="email"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
+              <p>歡迎登入<br />
+                {loginUser.nickname}</p>
+              <button onClick={handleLogout}>登出</button>
             </div>
-            <div>
-              <label>Password</label>
-              <input
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </div>
-            <button type="submit">登入</button>
-          </form>
-        )}
+          ) : (
+            <form onSubmit={handleLogin}>
+              <div>
+                <label>Email</label>
+                <input
+                  type="email"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div>
+                <label>Password</label>
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <button type="submit">登入</button>
+            </form>
+          )}
+        </div>
+        <div className='col-6'>
+          <h3>快速登入</h3>
+          <ul>
+            {UserData.map((qUser) =>
+            (
+              <li key={qUser.id} onClick={() => quickLogin(qUser)}>{qUser.username}</li>
+            )
+            )
+            }
+          </ul>
+        </div>
       </div>
-      <div className='col-6'>
-        <h3>快速登入</h3>
-        <ul>
-        {UserData.map((qUser) => 
-          (
-            <li key={qUser.id} onClick={()=>quickLogin(qUser)}>{qUser.username}</li>
-          )
-        )
-        }
-        </ul>
-      </div>
-
     </div>
   );
 };

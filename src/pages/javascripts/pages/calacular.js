@@ -77,38 +77,42 @@ const Calacular = () => {
 
     return (
         <>
-        <div className="calculator">
-            <input className="calculator-display" value={display} disabled />
-            <br />
-            <div className="calculator-buttons">
-                {[7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((num) => (
-                    <button
-                        key={num}
-                        className="calculator-button"
-                        onClick={() => handleNumberClick(num.toString())}
-                    >
-                        {num}
-                    </button>
-                ))}
-                <br />
-                {['+', '-', '*', '/'].map((op) => (
-                    <button
-                        key={op}
-                        className="calculator-button"
-                        onClick={() => handleOperatorClick(op)}
-                    >
-                        {op}
-                    </button>
-                ))}
-                <button className="calculator-button" onClick={handleReset}>Reset</button>
-                <button
-                    className="calculator-button calculator-equals"
-                    onClick={handleEquals}
-                >
-                    =
-                </button>
+            <div className='container'>
+                <div className='row py-2'>
+                    <div className='col-12'>
+                        <div className="calculator">
+                            <input className="calculator-display" value={display} disabled />
+                            <br />
+                            <div className="calculator-buttons">
+                                {[7, 8, 9, 4, 5, 6, 1, 2, 3, 0].map((num) => (
+                                    <button
+                                        key={num}
+                                        className="calculator-button"
+                                        onClick={() => handleNumberClick(num.toString())}
+                                    >
+                                        {num}
+                                    </button>
+                                ))}
+                                <br />
+                                {['+', '-', '*', '/'].map((op) => (
+                                    <button
+                                        key={op}
+                                        className="calculator-button"
+                                        onClick={() => handleOperatorClick(op)}
+                                    >
+                                        {op}
+                                    </button>
+                                ))}
+                                <button className="calculator-button" onClick={handleReset}>Reset</button>
+                                <button
+                                    className="calculator-button calculator-equals"
+                                    onClick={handleEquals}
+                                >
+                                    =
+                                </button>
+                            </div>
+                        </div></div></div>
             </div>
-        </div>
         </>
     );
 };
