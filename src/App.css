@@ -49,10 +49,19 @@ nav, footer {
 main{
   /* padding:20px; */
   overflow-y: auto;
+  overflow-x: auto;
   /* max-width: 1200px; */
   width: 100%;
   /* padding: 0 12px; */
   margin: 0 auto;
+}
+
+.row{
+  width: 100%;
+}
+
+.aligncenter{
+  text-align: center;
 }
 
 .container-fluid{
